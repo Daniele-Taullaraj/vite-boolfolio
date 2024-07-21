@@ -1,12 +1,16 @@
 <script>
+import SingleCard from './components/SingleCard.vue'
 import axios from 'axios';
 
 export default {
   name: 'app',
+  components: {
+    SingleCard,
+  },
 
   data() {
     return {
-      projects: '',
+      projects: [],
     }
   },
 
@@ -20,7 +24,14 @@ export default {
 </script>
 
 <template>
-  {{ projects }}
-</template>
+  <h1>VISTA TUTTI I PROGETTI:</h1>
 
+
+
+  <div v-for="project in projects" :key="project.id">
+    <SingleCard :project="project" />
+  </div>
+
+
+</template>
 <style scoped></style>
