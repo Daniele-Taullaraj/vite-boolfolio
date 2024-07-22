@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'SigleCard',
+    name: 'SingleCard',
     props: {
         project: Object
     },
@@ -24,7 +24,7 @@ export default {
 <template>
 
     <div class="d-flex justify-content-center">
-        <div class="card m-3 w-50">
+        <div class="card m-3 w-25">
             <div class="card-header text-center">{{ project.name }}</div>
             <div class="d-flex justify-content-center">
                 <img class="w-100" :src="checkImg(project.img)" alt="">
@@ -33,9 +33,9 @@ export default {
             <div class="card-body text-center">
                 <div>{{ project.description }}</div>
             </div>
-            <div>
-                {{ project.type_id }}
-            </div>
+            <RouterLink :to="{ name: 'project', params: { id: project.id } }" class="nav-link">
+                {{ project.name }}
+            </RouterLink>
         </div>
     </div>
 
